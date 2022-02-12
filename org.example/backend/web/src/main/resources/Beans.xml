@@ -1,0 +1,35 @@
+<?xml version = "1.0" encoding = "utf-8" ?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans.xsd
+    http://www.springframework.org/schema/context
+    http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <bean id = "rest" class="com.example.backend.web.MesRest" autowire="byName">
+        <constructor-arg ref="number"/>
+        <constructor-arg>
+            <list value-type="java.lang.Integer">
+                <ref bean = "multiple"/>
+                <ref bean = "sum"/>
+                <ref bean = "razn"/>
+            </list>
+        </constructor-arg>
+    </bean>
+
+    <bean id = "number" class="com.example.backend.bussines.Number">
+    </bean>
+
+
+
+    <bean id = "multiple" class="com.example.backend.bussines.MultNum">
+    </bean>
+
+    <bean id = "sum" class="com.example.backend.bussines.SumNum">
+    </bean>
+
+    <bean id = "razn" class="com.example.backend.bussines.RaznNum">
+    </bean>
+</beans>
