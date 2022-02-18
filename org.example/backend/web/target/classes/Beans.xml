@@ -1,0 +1,45 @@
+<?xml version = "1.0" encoding = "utf-8" ?>
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans.xsd
+    http://www.springframework.org/schema/context
+    http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <bean id = "rest" class="com.example.backend.web.MesRest" autowire="byName">
+<!--        <constructor-arg ref="number"/>-->
+<!--        <constructor-arg>-->
+<!--            <list value-type="java.lang.Integer">-->
+<!--                <ref bean = "multiple"/>-->
+<!--                <ref bean = "sum"/>-->
+<!--                <ref bean = "razn"/>-->
+<!--            </list>-->
+<!--        </constructor-arg>-->
+        <constructor-arg>
+            <list>
+                <ref bean= "numSum"/>
+                <ref bean= "numRazn"/>
+                <ref bean= "numMult"/>
+                <ref bean= "numDiv"/>
+            </list>
+        </constructor-arg>
+        <constructor-arg ref = "justNum"/>
+    </bean>
+
+    <bean id = "numSum" class="com.example.backend.bussines.operation.numSum">
+    </bean>
+
+    <bean id = "numRazn" class="com.example.backend.bussines.operation.numRazn">
+    </bean>
+
+    <bean id = "numMult" class="com.example.backend.bussines.operation.numMult">
+    </bean>
+
+    <bean id = "numDiv" class="com.example.backend.bussines.operation.numDiv">
+    </bean>
+
+    <bean id = "justNum" class="com.example.backend.bussines.justnum.justNum">
+    </bean>
+</beans>
